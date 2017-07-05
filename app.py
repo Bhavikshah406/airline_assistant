@@ -21,7 +21,7 @@ app = Flask(__name__)
 
 @app.route('/webhook', methods=['POST'])
 def webhook():
-   ''' req = request.get_json(silent=True, force=True)
+    req = request.get_json(silent=True, force=True)
 
     print("Request:")
     print(json.dumps(req, indent=4))
@@ -32,15 +32,8 @@ def webhook():
     # print(res)
     r = make_response(res)
     r.headers['Content-Type'] = 'application/json
-    '''
-    d={'denmark':'DEN','san francisco':'SFO',"franfurt":'FRA'}
-    return {
-        "speech": d,
-        "displayText": speech,
-        # "data": data,
-        # "contextOut": [],
-        "source": "apiai-weather-webhook-sample"
-    }
+    return r
+    
 
 
 def processRequest(req):
@@ -92,9 +85,10 @@ def makeWebhookResult(data):
 
     # print(json.dumps(item, indent=4))
 
-    speech = "Today in " + location.get('city') + ": " + condition.get('text') + \
-             ", the temperature is " + condition.get('temp') + " " + units.get('temperature')
-
+   # speech = "Today in " + location.get('city') + ": " + condition.get('text') + \
+    #         ", the temperature is " + condition.get('temp') + " " + units.get('temperature')
+    speech={'denmark':'DEN','san francisco':'SFO',"franfurt":'FRA'}
+   
     print("Response:")
     print(speech)
 
