@@ -34,7 +34,13 @@ def webhook():
     r.headers['Content-Type'] = 'application/json
     '''
     d={'denmark':'DEN','san francisco':'SFO',"franfurt":'FRA'}
-    return d
+    return {
+        "speech": d,
+        "displayText": speech,
+        # "data": data,
+        # "contextOut": [],
+        "source": "apiai-weather-webhook-sample"
+    }
 
 
 def processRequest(req):
